@@ -4,13 +4,13 @@ var OWNER = "<ORGANISATION>";
 var REPO = "<REPOSITORY>";
 
 
-function sendHttpPost(issue_data) {  
-  var raw_payload = {
-    "title": issue_data.title, 
-    "body" : issue_data.body +"\n\nwritten by "+ issue_data.owner
+function sendHttpPost(issueData) {  
+  var rawPayload = {
+    "title": issueData.title, 
+    "body" : issueData.body +"\n\nwritten by "+ issue_data.owner
   }
 
-  var payload = JSON.stringify(raw_payload);
+  var payload = JSON.stringify(rawPayload);
       
   var options =
       {
@@ -28,13 +28,13 @@ function makeResponse(e, type){
   Logger.log(s);
   
   var ret = e.parameter.text.split(" ")
-  var ret_hash = {
+  var retHash = {
     "title": ret[0],
     "body":  ret[1],
     "owner": e.parameter.user_name
   }
                   
-  return ret_hash
+  return retHash
 }
 
 function doGet(e) {
